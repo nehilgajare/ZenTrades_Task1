@@ -13,14 +13,10 @@ const App = () => {
           // Convert the products object into an array
           const productsArray = Object.values(data.products);
   
-          // Log the unsorted products to inspect the original order
-          console.log('Unsorted products:', productsArray);
   
           // Sort the products based on descending popularity
           const sortedProducts = productsArray.sort((a, b) => b.popularity - a.popularity);
   
-          // Log the sorted products to inspect the order
-          console.log('Sorted products:', sortedProducts);
   
           // Update the state with the sorted products
           setProducts(sortedProducts);
@@ -37,24 +33,30 @@ const App = () => {
   
   
   
-  console.log(products);
-  
   return (
-    <div className="App" style={{ textAlign: 'center' }} >
-      <h1 >Product List</h1>
-      <ul style={{ listStyleType: 'none', padding: 0 }}>
-        {products.map((product, index) => (
-          <li key={index} style={{backgroundColor:"#F8F8D7", marginBottom: '10px', border: '1px solid #ccc', padding: '10px',marginLeft:'20%',marginRight:'20%'  }}>
-            <strong>Title:</strong> {product?.title ?? 'N/A'},{' '}
-            <strong>Price:</strong> ${product?.price ?? 'N/A'},{' '}
-            <strong>Popularity:</strong> {product?.popularity ?? 'N/A'}
-          </li>
-        ))}
-      </ul>
+    <div className="App" style={{ textAlign: 'center' }}>
+      <h1>Product List</h1>
+      <table style={{ width: '50%', borderCollapse: 'collapse',marginLeft:'25%' }}>
+        <thead style={{backgroundColor:'red'}}>
+          <tr>
+            <th style={{ border: '1px solid #ccc', padding: '10px' }}>ID</th>
+            <th style={{ border: '1px solid #ccc', padding: '10px' }}>Title</th>
+            <th style={{ border: '1px solid #ccc', padding: '10px' }}>Price</th>
+            <th style={{ border: '1px solid #ccc', padding: '10px' }}>Popularity</th>
+          </tr>
+        </thead>
+        <tbody style={{backgroundColor:'#F5F5DC'}}>
+          {products.map((product, index) => (
+            <tr key={index} style={{ border: '1px solid #ccc', padding: '10px' }}>
+              <td style={{ border: '1px solid #ccc', padding: '10px' }}>{index + 1}</td>
+              <td style={{ border: '1px solid #ccc', padding: '10px' }}>{product?.title ?? 'N/A'}</td>
+              <td style={{ border: '1px solid #ccc', padding: '10px' }}>${product?.price ?? 'N/A'}</td>
+              <td style={{ border: '1px solid #ccc', padding: '10px' }}>{product?.popularity ?? 'N/A'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
-  
-  
-};
-
+          }
 export default App;

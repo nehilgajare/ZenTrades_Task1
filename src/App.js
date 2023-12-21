@@ -37,7 +37,7 @@ const App = () => {
     <div className="App" style={{ textAlign: 'center' }}>
       <h1>Product List</h1>
       <table style={{ width: '50%', borderCollapse: 'collapse',marginLeft:'25%' }}>
-        <thead style={{backgroundColor:'red'}}>
+        <thead style={{backgroundColor:'black' ,color:'white'}}>
           <tr>
             <th style={{ border: '1px solid #ccc', padding: '10px' }}>ID</th>
             <th style={{ border: '1px solid #ccc', padding: '10px' }}>Title</th>
@@ -45,7 +45,7 @@ const App = () => {
             <th style={{ border: '1px solid #ccc', padding: '10px' }}>Popularity</th>
           </tr>
         </thead>
-        <tbody style={{backgroundColor:'#F5F5DC'}}>
+        <tbody style={{backgroundColor:'blanchedalmond'}}>
           {products.map((product, index) => (
             <tr key={index} style={{ border: '1px solid #ccc', padding: '10px' }}>
               <td style={{ border: '1px solid #ccc', padding: '10px' }}>{index + 1}</td>
